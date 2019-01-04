@@ -20,7 +20,7 @@ module Players
             x += 1
           elsif board.cells[i] == opp
             o += 1
-          elsif (x == 2 && o == 0) || (o == 2 && x == 0)
+          elsif x == 2 && o == 0
             c = i if board.cells[i] == " "
             return c
           elsif board.cells[0] == opp && board.cells[8] == opp
