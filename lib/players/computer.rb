@@ -2,11 +2,11 @@ module Players
   class Computer < Player
     def move(board)
       if start(board)
-        return start(board)
+        start(board)
       elsif block_or_win(board)
-        return block_or_win(board)
+        block_or_win(board)
       else
-        return corners_and_sides(board)
+        corners_and_sides(board)
       end
     end
 
