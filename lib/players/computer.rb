@@ -21,8 +21,11 @@ module Players
           elsif board.cells[i] == opp
             o += 1
           elsif x == 2 && o == 0
-            c = i if board.cells[i] == " "
-            return c
+            a = i if board.cells[i] == " "
+            return a
+          elsif o == 2 && x == 0
+            b = i if board.cells[i] == " "
+            return b
           elsif board.cells[0] == opp && board.cells[8] == opp
             foo = sides.detect{|s| board.cells[s] == " "}
             return foo + 1
@@ -30,8 +33,8 @@ module Players
             bar = sides.detect{|s| board.cells[s] == " "}
             return bar + 1
           else
-            a = corners.detect{|c| board.cells[c] == " "}
-            return a + 1
+            c = corners.detect{|c| board.cells[c] == " "}
+            return c + 1
           end
         end
       end
