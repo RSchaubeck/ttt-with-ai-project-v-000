@@ -1,12 +1,12 @@
 module Players
   class Computer < Player
     def move(board)
-      if start
-        start
+      if start(board)
+        start(board)
       elsif block_or_win(board)
         block_or_win(board)
       else
-        strats
+        strats(board)
       end
     end
 
