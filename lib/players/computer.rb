@@ -1,7 +1,13 @@
 module Players
   class Computer < Player
     def move(board)
-      logic(board)
+      if start(board)
+        start(board)
+      elsif block_or_win(board)
+        block_or_win(board)
+      else
+        corners_and_sides(board)
+      end
     end
 
     def start(board)
@@ -43,16 +49,6 @@ module Players
         s = sides.detect{|s| board.cells[s] == " "}
         return c + 1 if c != nil
         return s + 1 if s != nil
-      end
-    end
-
-    def logic(board)
-      if start(board)
-        start(board)
-      elsif block_or_win(board)
-        block_or_win(board)
-      else
-        corners_and_sides(board)
       end
     end
 
