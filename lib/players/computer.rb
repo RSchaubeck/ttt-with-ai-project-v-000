@@ -23,10 +23,10 @@ module Players
         b = combo.select{|x| board.cells[x] == opp}
         puts a.count.to_s + "!!"
         puts b.count.to_s + "??"
-        if a.count(cpu) == 2 && b.count(opp) == 0
+        if a.count == 2 && b.count == 0
           win = combo.detect{|x| board.cells[x] == " "}
           return win + 1
-        elsif a.count(cpu) == 0 && b.count(opp) == 2
+        elsif a.count == 0 && b.count == 2
           block = combo.detect{|x| board.cells[x] == " "}
           return block + 1
         end
