@@ -4,15 +4,20 @@ module Players
       logic(board)
     end
 
+    def start
+      return 5 if board.valid_move?(5)     
+    end
+
+    def block_or_win(board)
+
+    end
+
     def logic(board)
       sides = [1,3,5,7]
       corners = [0,2,6,8]
       cpu = self.token
       opp = ""
       cpu == "X" ? opp = "O" : opp = "X"
-      if board.valid_move?(5)
-        return 5
-      end
       Game::WIN_COMBINATIONS.each do |combo|
         a = combo.select{|x| board.cells[x] == cpu}
         b = combo.select{|x| board.cells[x] == opp}
