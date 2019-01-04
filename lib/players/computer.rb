@@ -5,16 +5,10 @@ module Players
     end
 
     def start
-      return 5 if board.valid_move?(5)     
+      return 5 if board.valid_move?(5)
     end
 
     def block_or_win(board)
-
-    end
-
-    def logic(board)
-      sides = [1,3,5,7]
-      corners = [0,2,6,8]
       cpu = self.token
       opp = ""
       cpu == "X" ? opp = "O" : opp = "X"
@@ -29,16 +23,21 @@ module Players
           return block + 1
         end
       end
-        if board.cells[0] == opp && board.cells[8] == opp
-          a = sides.detect{|s| board.cells[s] == " "}
-          return a + 1
-        elsif board.cells[2] == opp && board.cells[6] == opp
-          b = sides.detect{|s| board.cells[s] == " "}
-          return b + 1
-        else
-          c = corners.detect{|c| board.cells[c] == " "}
-          return c + 1 if c != nil
-        end
+    end
+
+    def logic(board)
+      sides = [1,3,5,7]
+      corners = [0,2,6,8]
+      if board.cells[0] == opp && board.cells[8] == opp
+        a = sides.detect{|s| board.cells[s] == " "}
+        return a + 1
+      elsif board.cells[2] == opp && board.cells[6] == opp
+        b = sides.detect{|s| board.cells[s] == " "}
+        return b + 1
+      else
+        c = corners.detect{|c| board.cells[c] == " "}
+        return c + 1 if c != nil
+      end
     end
 
   end
