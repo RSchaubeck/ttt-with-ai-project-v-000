@@ -17,11 +17,11 @@ module Players
         a = combo.select{|x| board.cells[x] == cpu}
         b = combo.select{|x| board.cells[x] == opp}
         if a.count(cpu) == 2 && b.count(opp) == 0
-          c = combo.detect{|x| board.cells[x] == " "}
-          return c + 1
+          win = combo.detect{|x| board.cells[x] == " "}
+          return win + 1
         elsif a.count(cpu) == 0 && b.count(opp) == 2
-          c = combo.detect{|x| board.cells[x] == " "}
-          return c + 1
+          block = combo.detect{|x| board.cells[x] == " "}
+          return block + 1
         else
           combo.each do |i|
             if board.cells[0] == opp && board.cells[8] == opp
