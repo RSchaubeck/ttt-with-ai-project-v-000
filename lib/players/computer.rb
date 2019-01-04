@@ -21,8 +21,8 @@ module Players
       Game::WIN_COMBINATIONS.each do |combo|
         a = combo.select{|x| board.cells[x] == cpu}
         b = combo.select{|x| board.cells[x] == opp}
-        puts a
-        puts b
+        puts a + "!!"
+        puts b + "??"
         if a.count(cpu) == 2 && b.count(opp) == 0
           win = combo.detect{|x| board.cells[x] == " "}
           return win + 1
