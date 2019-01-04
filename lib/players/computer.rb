@@ -22,7 +22,9 @@ module Players
         elsif a.count(cpu) == 0 && b.count(opp) == 2
           block = combo.detect{|x| board.cells[x] == " "}
           return block + 1
-        elsif board.cells[0] == opp && board.cells[8] == opp
+        end
+      end
+        if board.cells[0] == opp && board.cells[8] == opp
           a = sides.detect{|s| board.cells[s] == " "}
           return a + 1
         elsif board.cells[2] == opp && board.cells[6] == opp
@@ -32,7 +34,6 @@ module Players
           c = corners.detect{|c| board.cells[c] == " "}
           return c + 1 if c != nil
         end
-      end
     end
 
   end
