@@ -48,6 +48,8 @@ module Players
         return b + 1
       else
         c = corners.detect{|c| board.cells[c] == " "}
+        s = sides.detect{|s| board.cells[s] == " "}
+        return c + 1 if c != nil
         return c + 1 if c != nil
       end
     end
