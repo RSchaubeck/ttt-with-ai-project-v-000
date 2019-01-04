@@ -22,19 +22,15 @@ module Players
         elsif a.count(cpu) == 0 && b.count(opp) == 2
           block = combo.detect{|x| board.cells[x] == " "}
           return block + 1
+        elsif board.cells[0] == opp && board.cells[8] == opp
+          a = sides.detect{|s| board.cells[s] == " "}
+          return a + 1
+        elsif board.cells[2] == opp && board.cells[6] == opp
+          b = sides.detect{|s| board.cells[s] == " "}
+          return b + 1
         else
-          combo.each do |i|
-            if board.cells[0] == opp && board.cells[8] == opp
-              foo = sides.detect{|s| board.cells[s] == " "}
-              return foo + 1
-            elsif board.cells[2] == opp && board.cells[6] == opp
-              bar = sides.detect{|s| board.cells[s] == " "}
-              return bar + 1
-            else
-              c = corners.detect{|c| board.cells[c] == " "}
-              return c + 1 if c != nil
-            end
-          end
+          c = corners.detect{|c| board.cells[c] == " "}
+          return c + 1 if c != nil
         end
       end
     end
