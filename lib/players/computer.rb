@@ -20,12 +20,10 @@ module Players
             x += 1
           elsif board.cells[i] == opp
             o += 1
-          elsif x == 2 && o == 0
-            a = i if board.cells[i] == " "
-            return a
-          elsif o == 2 && x == 0
-            b = i if board.cells[i] == " "
-            return b
+          elsif x == 2 && o == 0 && board.cells[i] == " "
+            return i + 1
+          elsif o == 2 && x == 0 && board.cells[i] == " "
+            return i + 1
           elsif board.cells[0] == opp && board.cells[8] == opp
             foo = sides.detect{|s| board.cells[s] == " "}
             return foo + 1
