@@ -1,7 +1,7 @@
 module Players
   class Computer < Player
     def move(board)
-      logic(board)
+    
     end
 
     def start
