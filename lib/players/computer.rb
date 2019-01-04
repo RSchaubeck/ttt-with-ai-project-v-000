@@ -34,7 +34,7 @@ module Players
       false
     end
 
-    def strats(board)
+    def corners_and_sides(board)
       cpu = self.token
       opp = ""
       cpu == "X" ? opp = "O" : opp = "X"
