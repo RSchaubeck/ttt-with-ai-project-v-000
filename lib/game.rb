@@ -65,8 +65,9 @@ class Game
     end
     if self.draw?
       puts "Cat's Game!"
+    elsif self.won?
+      puts "Congratulations #{winner}!"
     end
-    puts "Congratulations #{winner}!"
   end
 
 
