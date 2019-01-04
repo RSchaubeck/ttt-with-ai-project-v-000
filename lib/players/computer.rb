@@ -11,7 +11,7 @@ module Players
     end
 
     def start(board)
-      board.valid_move?(5) ? 5 : false
+      board.taken?(5) ? false : 5
     end
 
     def block_or_win(board)
