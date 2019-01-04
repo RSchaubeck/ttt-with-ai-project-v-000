@@ -10,12 +10,13 @@ module Players
       cpu = self.token
       opp = ""
       cpu == "X" ? opp = "O" : opp = "X"
+      if board.valid_move?(5)
+        return 5
+      end
       Game::WIN_COMBINATIONS.each do |combo|
         a = combo.select{|x| board.cells[x] == cpu}
         b = combo.select{|x| board.cells[x] == opp}
-        if !board.taken?(5)
-          return 5
-        elsif a.count(cpu) == 2 && b.count(opp) == 0
+        if a.count(cpu) == 2 && b.count(opp) == 0
           c = combo.detect{|x| board.cells[x] == " "}
           return c + 1
         elsif a.count(cpu) == 0 && b.count(opp) == 2
