@@ -32,7 +32,7 @@ module Players
             return bar + 1
           else
             c = corners.detect{|c| board.cells[c] == " "}
-            return c + 1
+            return c + 1 if c != nil
           end
         end
       end
