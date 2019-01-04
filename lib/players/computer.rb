@@ -25,7 +25,10 @@ module Players
       end
     end
 
-    def logic(board)
+    def strats(board)
+      cpu = self.token
+      opp = ""
+      cpu == "X" ? opp = "O" : opp = "X"
       sides = [1,3,5,7]
       corners = [0,2,6,8]
       if board.cells[0] == opp && board.cells[8] == opp
