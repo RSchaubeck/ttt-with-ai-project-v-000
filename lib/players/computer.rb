@@ -5,7 +5,7 @@ module Players
     end
 
     def start
-      return 5 if board.valid_move?(5)
+      board.valid_move?(5) ? 5 : false
     end
 
     def block_or_win(board)
