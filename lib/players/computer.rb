@@ -13,13 +13,17 @@ module Players
       opp = ""
       cpu == "X" ? opp = "O" : opp = "X"
       Game::WIN_COMBINATIONS.each do |combo|
+        a = combo.select{|x| board.cells[x] == cpu}
+        b = combo.select{|x| board.cells[x] == opp}
+        if a.count(cpu) == 2 && b.count(opp) == 0
+          c = combo.detect{|x| board.cells[x] == " "}
+          return c + 1
+        elsif a.count(cpu) == 0 && b.count(opp) == 2
+          c = combo.detect{|x| board.cells[x] == " "}
+          return c + 1 
         combo.each do |i|
           if board.valid_move?(5)
             return 5
-          elsif board.cells[i] == cpu
-            x += 1
-          elsif board.cells[i] == opp
-            o += 1
           elsif x == 2 && board.cells[i] == " "
             return i + 1
           elsif o == 2 && board.cells[i] == " "
