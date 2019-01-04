@@ -1,7 +1,13 @@
 module Players
   class Computer < Player
     def move(board)
-    
+      if start
+        start
+      elsif block_or_win(board)
+        block_or_win(board)
+      else
+        strats
+      end
     end
 
     def start
@@ -23,6 +29,7 @@ module Players
           return block + 1
         end
       end
+      false
     end
 
     def strats(board)
