@@ -3,10 +3,8 @@ module Players
     def move(board)
       if start(board)
         start(board)
-      elsif block_or_win(board)
+      else block_or_win(board)
         block_or_win(board)
-      else
-        strats(board)
       end
     end
 
