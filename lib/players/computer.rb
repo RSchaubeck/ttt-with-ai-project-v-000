@@ -10,6 +10,7 @@ module Players
       cpu = self.token
       opp = ""
       cpu == "X" ? opp = "O" : opp = "X"
+      puts cpu
       if board.valid_move?(5)
         return 5
       end
