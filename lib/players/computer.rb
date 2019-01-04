@@ -10,7 +10,7 @@ module Players
       end
     end
 
-    def start
+    def start(board)
       board.valid_move?(5) ? 5 : false
     end
 
