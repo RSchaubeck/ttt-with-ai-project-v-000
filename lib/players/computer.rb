@@ -6,7 +6,7 @@ module Players
       elsif block_or_win(board)
         block_or_win(board)
       else
-        strats(board)
+        corners_and_sides(board)
       end
     end
 
