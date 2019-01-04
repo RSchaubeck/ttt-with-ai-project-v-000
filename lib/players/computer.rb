@@ -23,7 +23,7 @@ module Players
           return c + 1
         else
           combo.each do |i|
-            elsif board.cells[0] == opp && board.cells[8] == opp
+            if board.cells[0] == opp && board.cells[8] == opp
               foo = sides.detect{|s| board.cells[s] == " "}
               return foo + 1
             elsif board.cells[2] == opp && board.cells[6] == opp
@@ -34,6 +34,7 @@ module Players
               return c + 1 if c != nil
             end
           end
+        end
       end
     end
 
